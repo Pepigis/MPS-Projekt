@@ -1,0 +1,32 @@
+class MyVehicle : VehicleScript
+{
+    override void OnInit()
+    {
+        // Nastavení vlastností vozidla
+        SetMaxSpeed(50);  // Maximální rychlost
+        SetTurnRate(30);  // Rychlost otáčení
+    }
+
+    override void OnUpdate(float deltaTime)
+    {
+        // Pohyb dopředu/zpět
+        if (Input.IsKeyPressed("W")) MoveForward();
+        if (Input.IsKeyPressed("S")) MoveBackward();
+
+        // Zatáčení
+        if (Input.IsKeyPressed("A")) TurnLeft();
+        if (Input.IsKeyPressed("D")) TurnRight();
+    }
+
+    void ToggleLights()
+    {
+        // Zapnutí/vypnutí světel
+        if (Input.IsKeyPressed("L")) ToggleLight();
+    }
+
+    void OpenHatch()
+    {
+        // Animace poklopu
+        if (Input.IsKeyPressed("H")) PlayAnimation("HatchOpen");
+    }
+}
